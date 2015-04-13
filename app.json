@@ -1,0 +1,7 @@
+{
+  "name": "tornado-example",
+  "description": "Tornado Example",
+  "repository": "https://github.com/adamar/tornado-example",
+  "keywords": ["python", "tornado"],
+  "success_url": "/",
+}
