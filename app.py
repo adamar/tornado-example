@@ -24,7 +24,7 @@ class MainHandler(tornado.web.RequestHandler):
 
 
 class FourOhFourHandler(tornado.web.RequestHandler):
-    def get(self):
+    def get(self, slug):
         self.render("404.html")
 
 
