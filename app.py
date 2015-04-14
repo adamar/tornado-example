@@ -13,7 +13,7 @@ from tornado.options import define, options
 define("environment", default="development", help="Pick you environment", type=str)
 define("site_title", default="Tornado Example", help="Site Title", type=str)
 define("cookie_secret", default="sooooooosecret", help="Your secret cookie dough", type=str)
-define("port", default=8000, help="Listening port", type=int)
+define("port", default="8000", help="Listening port", type=str)
 
 
 
@@ -46,12 +46,12 @@ class Application(tornado.web.Application):
 
 
 def main():
+    tornado.options.parse_command_line()
     if "PORT" in os.environ:
         port = os.environ["PORT"]
     else:
         port = options.port
     print "Server listening on port " + str(port)
-    tornado.options.parse_command_line()
     logging.getLogger().setLevel(logging.DEBUG)
     http_server = tornado.httpserver.HTTPServer(Application())
     http_server.listen(port)
