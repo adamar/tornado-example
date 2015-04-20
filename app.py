@@ -47,14 +47,10 @@ class Application(tornado.web.Application):
 
 def main():
     tornado.options.parse_command_line()
-    if "PORT" in os.environ:
-        port = os.environ["PORT"]
-    else:
-        port = options.port
-    print "Server listening on port " + str(port)
+    print "Server listening on port " + str(options.port)
     logging.getLogger().setLevel(logging.DEBUG)
     http_server = tornado.httpserver.HTTPServer(Application())
-    http_server.listen(port)
+    http_server.listen(options.port)
     tornado.ioloop.IOLoop.instance().start()
 
 if __name__ == "__main__":
